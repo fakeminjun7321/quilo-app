@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Quilo — 실험 보고서 생성기 데스크톱 앱</title>
-    <meta name="description" content="Quilo는 AI 실험 보고서 생성기를 데스크톱 앱으로 만든 것입니다. Mac과 Windows에서 다운로드하세요." />
+    <title>Quilo — 실험 보고서 초안 작성 도구</title>
+    <meta name="description" content="Quilo는 실험 보고서 초안 작성을 돕는 학습 보조 데스크톱 앱입니다. Mac과 Windows에서 다운로드하세요." />
     <link rel="icon" href="icon.png" />
-    <meta property="og:title" content="Quilo — 실험 보고서 생성기 데스크톱 앱" />
-    <meta property="og:description" content="AI 실험 보고서 생성기를 앱으로. Mac·Windows 다운로드." />
+    <meta property="og:title" content="Quilo — 실험 보고서 초안 작성 도구" />
+    <meta property="og:description" content="실험 보고서 초안 작성을 돕는 앱. Mac·Windows 다운로드." />
     <meta property="og:image" content="icon.png" />
     <meta property="og:type" content="website" />
     <style>
@@ -92,7 +92,13 @@
         padding: 6px 13px; font-size: 12px; font-weight: 600; cursor: pointer; font-family: inherit; }
       .cmd button:hover { background: #475569; }
 
-      footer { text-align: center; color: var(--muted); font-size: 13px; padding: 40px 20px 60px; }
+      footer { color: var(--muted); font-size: 12.5px; padding: 36px 20px 56px; margin-top: 24px; border-top: 1px solid var(--line); background: #fff; }
+      footer .wrap { max-width: 680px; text-align: left; }
+      .foot-disc { font-size: 13px; line-height: 1.75; color: #475569; }
+      .foot-links { margin: 16px 0 10px; display: flex; flex-wrap: wrap; gap: 8px 18px; }
+      .foot-links a { color: var(--brand-2); font-weight: 600; text-decoration: none; }
+      .foot-links a:hover { text-decoration: underline; }
+      .foot-mini { font-size: 12px; color: #94a3b8; margin-top: 8px; line-height: 1.65; }
       @media (max-width: 560px) {
         h1 { font-size: 36px; }
         .platforms { grid-template-columns: 1fr; }
@@ -104,7 +110,7 @@
       <div class="wrap">
         <img src="icon.png" alt="Quilo" />
         <h1>Quilo</h1>
-        <p class="tagline">AI 실험 보고서 생성기 · 데스크톱 앱</p>
+        <p class="tagline">실험 보고서 초안 작성 도구 · 데스크톱 앱</p>
         <div class="btns">
           <a class="btn btn-primary" href="https://github.com/fakeminjun7321/quilo-app/releases/latest/download/Quilo-mac-arm64.dmg">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.7 1.3c.1 1-.3 2-1 2.8-.7.8-1.7 1.4-2.7 1.3-.1-1 .4-2 1-2.7.7-.8 1.8-1.4 2.7-1.4zM20 17.1c-.5 1.2-.8 1.7-1.4 2.7-.9 1.4-2.2 3.1-3.8 3.1-1.4 0-1.8-.9-3.7-.9s-2.4.9-3.7.9c-1.6 0-2.8-1.5-3.7-2.9C1.3 17.3.6 12.6 2.3 9.8c.9-1.4 2.4-2.3 4-2.3 1.5 0 2.5.9 3.7.9 1.2 0 1.9-.9 3.7-.9 1.4 0 2.9.8 3.9 2.1-3.4 1.9-2.9 6.8.7 7.5z"/></svg>
@@ -185,8 +191,23 @@
     </div>
 
     <footer>
-      Quilo · 실험 보고서 생성기 데스크톱 앱<br />
-      Mac과 Windows 모두 여기서 받을 수 있어요.
+      <div class="wrap">
+        <p class="foot-disc">
+          <b>Quilo는 보고서 <u>초안</u> 작성을 돕는 학습 보조 도구입니다.</b> 생성된 내용은 부정확할 수 있으니
+          <b>반드시 직접 검토·수정</b>하고, 학교·교사의 AI 사용 정책을 먼저 확인하세요 — 그대로 제출하지 마세요.
+          본 도구는 어떠한 보증 없이 "있는 그대로" 제공되며, 사용 결과(학업·성적 등)에 대해 책임지지 않습니다.
+        </p>
+        <p class="foot-links">
+          <a href="https://chem-pre-lab-web.onrender.com/terms.html" target="_blank" rel="noopener">이용약관</a>
+          <a href="https://chem-pre-lab-web.onrender.com/privacy.html" target="_blank" rel="noopener">개인정보처리방침</a>
+          <a href="https://github.com/fakeminjun7321/quilo-app" target="_blank" rel="noopener">GitHub</a>
+        </p>
+        <p class="foot-mini">
+          업로드한 파일은 AI 처리를 위해 외부 처리업체(해외 포함)로 전송될 수 있고, 생성 파일은 24시간만 보관됩니다.
+          Quilo는 Electron 및 여러 오픈소스 소프트웨어로 제작되었으며, 각 구성요소는 해당 라이선스를 따릅니다.
+        </p>
+        <p class="foot-mini">© 2026 Quilo · Mac · Windows 데스크톱 앱</p>
+      </div>
     </footer>
 
     <script>
