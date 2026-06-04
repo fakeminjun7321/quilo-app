@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Quilo — 실험 보고서 생성기 데스크톱 앱</title>
+    <meta name="description" content="Quilo는 AI 실험 보고서 생성기를 데스크톱 앱으로 만든 것입니다. Mac과 Windows에서 다운로드하세요." />
+    <link rel="icon" href="icon.png" />
+    <meta property="og:title" content="Quilo — 실험 보고서 생성기 데스크톱 앱" />
+    <meta property="og:description" content="AI 실험 보고서 생성기를 앱으로. Mac 다운로드, Windows 곧 출시." />
+    <meta property="og:image" content="icon.png" />
+    <meta property="og:type" content="website" />
+    <style>
+      :root {
+        --brand: #243ba2;
+        --brand-2: #3d52c9;
+        --ink: #0f172a;
+        --muted: #5b6478;
+        --line: #e6e8f0;
+        --bg: #f6f7fb;
+        --card: #ffffff;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+          "Pretendard", "Segoe UI", system-ui, sans-serif;
+        background: var(--bg);
+        color: var(--ink);
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+      }
+      .wrap { max-width: 880px; margin: 0 auto; padding: 0 20px; }
+      a { color: var(--brand-2); }
+
+      /* Hero */
+      header {
+        text-align: center;
+        padding: 72px 20px 40px;
+        background: radial-gradient(900px 420px at 50% -40%, #e9ecfb 0%, var(--bg) 70%);
+      }
+      header img { width: 104px; height: 104px; filter: drop-shadow(0 12px 24px rgba(36, 59, 162, 0.28)); }
+      h1 { font-size: 44px; letter-spacing: -0.02em; margin: 18px 0 6px; }
+      .tagline { font-size: 18px; color: var(--muted); }
+
+      /* Buttons */
+      .btns { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 28px; }
+      .btn {
+        display: inline-flex; align-items: center; gap: 10px;
+        padding: 14px 22px; border-radius: 13px; font-size: 15px; font-weight: 600;
+        text-decoration: none; border: 1px solid transparent; transition: transform .06s ease, box-shadow .2s ease;
+      }
+      .btn:active { transform: translateY(1px); }
+      .btn-primary { background: var(--brand); color: #fff; box-shadow: 0 8px 20px rgba(36, 59, 162, 0.28); }
+      .btn-primary:hover { box-shadow: 0 10px 26px rgba(36, 59, 162, 0.38); }
+      .btn-ghost { background: #fff; color: var(--ink); border-color: var(--line); }
+      .btn-ghost:hover { border-color: #c8cde0; }
+      .btn-disabled { background: #eef0f6; color: #9aa2b6; cursor: not-allowed; }
+      .btn svg { width: 20px; height: 20px; }
+      .sub { font-size: 13px; color: var(--muted); margin-top: 12px; }
+
+      /* Sections */
+      section { padding: 30px 0; }
+      .card {
+        background: var(--card); border: 1px solid var(--line); border-radius: 18px;
+        padding: 26px 28px; margin: 16px 0;
+      }
+      h2 { font-size: 21px; margin-bottom: 6px; letter-spacing: -0.01em; }
+      .platforms { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+      .plat { text-align: center; }
+      .plat h3 { font-size: 16px; margin-bottom: 4px; }
+      .plat .note { font-size: 13px; color: var(--muted); min-height: 20px; }
+      .plat .col { display: flex; flex-direction: column; gap: 10px; align-items: center; margin-top: 14px; }
+      .badge { display: inline-block; font-size: 12px; font-weight: 600; color: var(--brand-2);
+        background: #eef1fc; border-radius: 999px; padding: 3px 10px; margin-bottom: 10px; }
+
+      ol.steps { margin: 8px 0 0 0; padding-left: 0; list-style: none; counter-reset: s; }
+      ol.steps li { position: relative; padding: 8px 0 8px 40px; counter-increment: s; }
+      ol.steps li::before {
+        content: counter(s); position: absolute; left: 0; top: 8px;
+        width: 26px; height: 26px; border-radius: 50%; background: var(--brand); color: #fff;
+        font-size: 14px; font-weight: 700; display: grid; place-items: center;
+      }
+      kbd { background: #eef0f6; border: 1px solid #d7dbe8; border-bottom-width: 2px; border-radius: 6px;
+        padding: 1px 7px; font-size: 13px; font-family: inherit; }
+      .callout { background: #fffaf0; border: 1px solid #f3e2bd; border-radius: 12px; padding: 14px 16px; font-size: 14px; color: #6b5a2e; margin-top: 14px; }
+
+      footer { text-align: center; color: var(--muted); font-size: 13px; padding: 40px 20px 60px; }
+      @media (max-width: 560px) {
+        h1 { font-size: 36px; }
+        .platforms { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="wrap">
+        <img src="icon.png" alt="Quilo" />
+        <h1>Quilo</h1>
+        <p class="tagline">AI 실험 보고서 생성기 · 데스크톱 앱</p>
+        <div class="btns">
+          <a class="btn btn-primary" href="https://github.com/fakeminjun7321/quilo-app/releases/latest/download/Quilo-mac-arm64.dmg">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.7 1.3c.1 1-.3 2-1 2.8-.7.8-1.7 1.4-2.7 1.3-.1-1 .4-2 1-2.7.7-.8 1.8-1.4 2.7-1.4zM20 17.1c-.5 1.2-.8 1.7-1.4 2.7-.9 1.4-2.2 3.1-3.8 3.1-1.4 0-1.8-.9-3.7-.9s-2.4.9-3.7.9c-1.6 0-2.8-1.5-3.7-2.9C1.3 17.3.6 12.6 2.3 9.8c.9-1.4 2.4-2.3 4-2.3 1.5 0 2.5.9 3.7.9 1.2 0 1.9-.9 3.7-.9 1.4 0 2.9.8 3.9 2.1-3.4 1.9-2.9 6.8.7 7.5z"/></svg>
+            Mac 다운로드 (Apple Silicon)
+          </a>
+        </div>
+        <p class="sub">M1 이후 맥(2020년 말~)이면 이 버튼. Intel 맥은 아래에서 받으세요.</p>
+      </div>
+    </header>
+
+    <div class="wrap">
+      <section>
+        <div class="card">
+          <h2>다운로드</h2>
+          <div class="platforms">
+            <div class="plat">
+              <h3> macOS</h3>
+              <p class="note">지원: macOS 10.12 이상</p>
+              <div class="col">
+                <a class="btn btn-primary" href="https://github.com/fakeminjun7321/quilo-app/releases/latest/download/Quilo-mac-arm64.dmg">Apple Silicon (.dmg)</a>
+                <a class="btn btn-ghost" href="https://github.com/fakeminjun7321/quilo-app/releases/latest/download/Quilo-mac-x64.dmg">Intel Mac (.dmg)</a>
+              </div>
+            </div>
+            <div class="plat">
+              <h3>⊞ Windows</h3>
+              <p class="note" id="win-note">준비 중이에요</p>
+              <div class="col">
+                <span class="btn btn-disabled">곧 출시</span>
+              </div>
+            </div>
+          </div>
+          <p class="sub" style="text-align:center">어떤 맥인지 모르면: 화면 왼쪽 위  메뉴 → <b>이 Mac에 관하여</b> → 칩/프로세서가 "Apple"이면 Apple Silicon, "Intel"이면 Intel.</p>
+        </div>
+      </section>
+
+      <section>
+        <div class="card">
+          <h2>처음 열 때 (한 번만)</h2>
+          <p style="color:var(--muted)">Quilo는 아직 Apple 서명이 없어서, 처음 실행할 때 경고가 떠요. 아래처럼 한 번만 열면 다음부터는 그냥 열립니다.</p>
+          <ol class="steps">
+            <li>받은 <b>.dmg</b>를 열고, <b>Quilo</b>를 <b>응용 프로그램</b> 폴더로 드래그</li>
+            <li>응용 프로그램에서 <b>Quilo</b>를 <b>우클릭(또는 Control+클릭) → 열기</b></li>
+            <li>경고창이 뜨면 다시 <b>열기</b>를 누르면 끝</li>
+          </ol>
+          <div class="callout">
+            그래도 안 열리면: <kbd>시스템 설정</kbd> → <kbd>개인정보 보호 및 보안</kbd> 으로 가서 맨 아래
+            <b>"확인 없이 열기"</b>를 눌러주세요.
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="card">
+          <span class="badge">Quilo가 뭔가요?</span>
+          <h2>웹사이트를 그대로 앱으로</h2>
+          <p style="color:var(--muted)">
+            Quilo는 실험 보고서 생성 웹사이트
+            <a href="https://chem-pre-lab-web.onrender.com/" target="_blank" rel="noopener">chem-pre-lab-web.onrender.com</a>
+            을 <b>데스크톱 앱으로 만든 것</b>이에요. 기능과 내용은 웹사이트와 100% 같고(앱이 실제로 그 사이트를 띄웁니다),
+            웹이 업데이트되면 앱도 자동으로 최신 상태가 됩니다. 설치가 부담되면 브라우저에서 바로 써도 똑같아요.
+          </p>
+          <div class="btns" style="justify-content:flex-start; margin-top:18px">
+            <a class="btn btn-ghost" href="https://chem-pre-lab-web.onrender.com/" target="_blank" rel="noopener">🌐 브라우저에서 바로 쓰기</a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer>
+      Quilo · 실험 보고서 생성기 데스크톱 앱<br />
+      Mac과 Windows에서 같은 곳에서 받을 수 있어요. (Windows 곧 출시)
+    </footer>
+
+    <script>
+      // 윈도우 사용자에게는 안내 문구만 살짝 바꿔준다 (arm64/x64 자동 판별은 브라우저에서 불가능하므로 하지 않음)
+      try {
+        var ua = navigator.userAgent || "";
+        if (/Windows/i.test(ua)) {
+          document.getElementById("win-note").textContent = "당신의 OS! 곧 받을 수 있어요";
+        }
+      } catch (e) {}
+    </script>
+  </body>
+</html>
