@@ -130,9 +130,9 @@
             </div>
             <div class="plat">
               <h3>⊞ Windows</h3>
-              <p class="note" id="win-note">준비 중이에요</p>
+              <p class="note" id="win-note">지원: Windows 10 / 11 (64-bit)</p>
               <div class="col">
-                <span class="btn btn-disabled">곧 출시</span>
+                <a class="btn btn-primary" href="https://github.com/fakeminjun7321/quilo-app/releases/latest/download/Quilo-win-x64.exe">Windows (.exe)</a>
               </div>
             </div>
           </div>
@@ -143,7 +143,9 @@
       <section>
         <div class="card">
           <h2>처음 열 때 (한 번만)</h2>
-          <p style="color:var(--muted)">Quilo는 Apple 유료 서명이 없어서, 다운로드 후 처음 실행할 때 macOS가 한 번 막아요. 앱이 위험해서가 아니라 서명이 없어서입니다. 한 번만 아래처럼 열면 그다음부터는 그냥 열립니다.</p>
+          <p style="color:var(--muted)">Quilo는 유료 코드 서명이 없어서, 처음 실행할 때 OS가 한 번 막아요. 앱이 위험해서가 아니라 서명이 없어서입니다. 한 번만 아래처럼 열면 그다음부터는 그냥 열립니다.</p>
+
+          <h3 style="font-size:16px;margin:16px 0 6px">macOS</h3>
           <ol class="steps">
             <li>받은 <b>.dmg</b>를 열고 <b>Quilo</b>를 <b>응용 프로그램</b> 폴더로 드래그</li>
             <li><b>Quilo</b> 더블클릭 → 막히면 <kbd>시스템 설정</kbd> → <kbd>개인정보 보호 및 보안</kbd> 에서 아래로 스크롤 → <b>"확인 없이 열기"</b> 클릭 → 다시 <b>열기</b></li>
@@ -156,6 +158,12 @@
             </div>
             인터넷 다운로드에 붙는 <b>격리 표시만</b> 지우는 명령이에요. 안전합니다.
           </div>
+
+          <h3 style="font-size:16px;margin:18px 0 6px">Windows</h3>
+          <ol class="steps">
+            <li>받은 <b>Quilo-win-x64.exe</b> 실행</li>
+            <li><b>"Windows의 PC를 보호했습니다"</b>(SmartScreen)가 뜨면 → <b>"추가 정보"</b> → <b>"실행"</b> 클릭</li>
+          </ol>
         </div>
       </section>
 
@@ -178,7 +186,7 @@
 
     <footer>
       Quilo · 실험 보고서 생성기 데스크톱 앱<br />
-      Mac과 Windows에서 같은 곳에서 받을 수 있어요. (Windows 곧 출시)
+      Mac과 Windows 모두 여기서 받을 수 있어요.
     </footer>
 
     <script>
@@ -186,7 +194,7 @@
       try {
         var ua = navigator.userAgent || "";
         if (/Windows/i.test(ua)) {
-          document.getElementById("win-note").textContent = "당신의 OS! 곧 받을 수 있어요";
+          document.getElementById("win-note").textContent = "✓ 당신의 OS — 바로 받으세요";
         }
       } catch (e) {}
     </script>
